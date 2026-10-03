@@ -1,6 +1,6 @@
 {
   "name": "dsh-restart-button",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Adds a restart button to the top-right of the DeepSeek Harness session header: one click safely restarts the whole client (Windows desktop app: Electron shell + Host; or the dsh web server). · 在会话标题栏右上角添加「重启」按钮，一键安全重启整个客户端。",
   "type": "module",
   "main": "lib/index.js",
@@ -23,8 +23,13 @@
     "cordis.patch.yml",
     "icon.svg",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ],
+  "scripts": {
+    "test": "node test/host.test.mjs",
+    "test:client": "node test/client.test.cjs"
+  },
   "dsh": {
     "engines": {
       "dsh": ">=0.2.0-rc.1"
