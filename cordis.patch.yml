@@ -1,0 +1,12 @@
+# dsh-restart-button bundle patch: inserts the plugin row into the profile.
+# Applied as a bundle layer through the `dsh.bundle.patch` manifest field, so
+# installing the package (Plugins page or plugin_manager) is all it takes.
+#
+# Optional configuration, in your profile's cordis.patch.yml:
+#
+#   - id: restart-button
+#     config:
+#       confirm: when-busy   # when-busy (default) | always | never
+- insert:
+    - id: restart-button
+      name: dsh-restart-button

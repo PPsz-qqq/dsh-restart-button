@@ -1,0 +1,62 @@
+{
+  "name": "dsh-restart-button",
+  "version": "0.1.2",
+  "description": "Adds a restart button to the top-right of the DeepSeek Harness session header: one click safely restarts the whole client (Windows desktop app: Electron shell + Host; or the dsh web server). · 在会话标题栏右上角添加「重启」按钮，一键安全重启整个客户端。",
+  "type": "module",
+  "main": "lib/index.js",
+  "icon": "icon.svg",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "lib/restart-desktop.ps1",
+    "lib/detach.mjs",
+    "lib/relaunch-web.mjs",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.0-rc.1"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PPsz-qqq/dsh-restart-button.git"
+  },
+  "homepage": "https://github.com/PPsz-qqq/dsh-restart-button#readme",
+  "bugs": {
+    "url": "https://github.com/PPsz-qqq/dsh-restart-button/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "restart"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
