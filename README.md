@@ -52,7 +52,8 @@ DeepSeek Harness 桌面版由 Electron 主进程启动一个 Node 模式的 Host
 
 | 来源 | 填写内容 |
 | --- | --- |
-| GitHub Release 打包文件（推荐） | `https://github.com/PPsz-qqq/dsh-restart-button/releases/download/v0.2.0/dsh-restart-button-0.2.0.tgz` |
+| 插件市场 dshmarket | 搜索 `dsh-restart-button`（作者 PPsz-qqq），一键安装 |
+| GitHub Release 打包文件（推荐） | 最新版：`https://github.com/PPsz-qqq/dsh-restart-button/releases/latest/download/dsh-restart-button.tgz`；指定版本：`https://github.com/PPsz-qqq/dsh-restart-button/releases/download/v0.2.0/dsh-restart-button-0.2.0.tgz` |
 | GitHub 仓库 | `github:PPsz-qqq/dsh-restart-button#v0.2.0` |
 | 本地打包文件 | `.tgz` 的绝对路径，例如 `C:\Users\<you>\.dsh\plugins\dsh-restart-button-0.2.0.tgz` |
 
@@ -98,6 +99,12 @@ $env:RB_TEST_PORT = '19399'
 Start-Process node -ArgumentList "$PWD\test\dummy-main.mjs" -WindowStyle Hidden   # 或 test\dummy-web.mjs
 # 几秒后查看 $env:RB_TEST_DIR\events.log 与 restart.log（UTF-8）；每次演练前清空 RB_TEST_DIR
 ```
+
+### 发布清单
+
+1. 更新 `package.json` 的版本号和 `CHANGELOG.md`，跑一遍上面的测试。
+2. `pnpm pack` 生成 `dsh-restart-button-<version>.tgz`。
+3. 打标签 `v<version>` 并推送，创建同名 GitHub Release，上传**两个**资产：`dsh-restart-button-<version>.tgz`，以及同一文件的无版本号副本 `dsh-restart-button.tgz`。插件市场条目里的 `releases/latest/download/dsh-restart-button.tgz` 依赖后者。
 
 ## License
 
